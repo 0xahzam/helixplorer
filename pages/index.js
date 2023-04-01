@@ -25,10 +25,7 @@ const Label = ({ title, data }) => {
       rounded={"full"}
       fontSize={"14px"}
     >
-      <Text
-        color={"#326116"}
-        fontSize={"16px"}
-        fontWeight={"medium"}>
+      <Text color={"#326116"} fontSize={"16px"} fontWeight={"medium"}>
         {title}: {data}
       </Text>
     </Flex>
@@ -92,7 +89,6 @@ export default function index() {
       const data = await response.json();
       const { output } = data;
       inf = output.text;
-      console.log(inf);
       flag = false;
     }
   };
