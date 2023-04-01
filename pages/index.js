@@ -14,6 +14,8 @@ const Label = ({ title, data }) => {
   return (
     <Flex
       maxW={"300px"}
+      paddingTop={"2px"}
+      paddingBottom={"2px"}
       paddingRight={"12px"}
       paddingLeft={"12px"}
       align={"center"}
@@ -26,9 +28,7 @@ const Label = ({ title, data }) => {
       <Text
         color={"#326116"}
         fontSize={"16px"}
-        fontWeight={"medium"}
-        lineHeight={"150%"}
-      >
+        fontWeight={"medium"}>
         {title}: {data}
       </Text>
     </Flex>
@@ -68,10 +68,6 @@ export default function index() {
   let organism;
   let inf;
   let flag = false;
-
-  useEffect(() => {
-    console.log(maininfo);
-  }, [maininfo]);
 
   const getPdbData = async (id) => {
     const url = `https://files.rcsb.org/download/${id}.pdb`;

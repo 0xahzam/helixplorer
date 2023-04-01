@@ -1,7 +1,7 @@
 import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 const openai = new OpenAIApi(configuration);
@@ -12,7 +12,7 @@ const generateAction = async (req, res) => {
 
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: `return 500 words of unique easy to understand information about ${title} ${mol}`,
+      prompt: `return 500 words of unique easy to understand information about ${title} ${mol}\n`,
       temperature: 0.7,
       max_tokens: 600,
     });
