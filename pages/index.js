@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Flex, Input, Button, Text, Image } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import { Dropdown, Loading } from "@nextui-org/react";
+import axios from "axios";
 
 const Structure = dynamic(
   () => {
@@ -78,18 +79,26 @@ export default function index() {
 
   const info = async (title, mol) => {
     if (flag) {
-      const response = await fetch("/api/info", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ title, mol }),
-      });
+      try {
+        const response = await axios.post(
+          "/api/info",
+          {
+            title,
+            mol,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
-      const data = await response.json();
-      const { output } = data;
-      inf = output.text;
-      flag = false;
+        const { output } = response.data;
+        inf = output.text;
+        flag = false;
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
