@@ -6,6 +6,7 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>Helixplorer</title>
+        <link rel="shortcut icon" href="favicon.svg" />
         <meta
           name="viewport"
           key="main"
