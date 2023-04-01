@@ -170,6 +170,12 @@ export default function index() {
           >
             <Input
               onChange={(e) => setInput(e.target.value)}
+              onKeyPress={async (e) => {
+                if (e.key === "Enter") {
+                  setRoute(true);
+                  await main();
+                }
+              }}
               marginLeft={"16px"}
               p={"0px"}
               w={"250px"}
@@ -236,6 +242,12 @@ export default function index() {
           >
             <Input
               onChange={(e) => setInput(e.target.value)}
+              onKeyPress={async (e) => {
+                if (e.key === "Enter") {
+                  setRoute(true);
+                  await main();
+                }
+              }}
               marginLeft={"16px"}
               p={"0px"}
               w={"150px"}
