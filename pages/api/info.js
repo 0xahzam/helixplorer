@@ -9,7 +9,6 @@ const openai = new OpenAIApi(configuration);
 const generateAction = async (req, res) => {
   if (req.method === "POST") {
     const { mol, title } = req.body;
-    console.log(mol, title);
 
     const completion = await openai.createCompletion({
       model: "text-davinci-003",

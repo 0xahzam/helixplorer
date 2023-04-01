@@ -98,6 +98,7 @@ export default function index() {
         flag = false;
       } catch (error) {
         console.error(error);
+        flag = false;
       }
     }
   };
@@ -186,8 +187,6 @@ export default function index() {
               onClick={async () => {
                 setRoute(true);
                 await main();
-                await info(titl, molc);
-                setMaininfo(inf);
               }}
               marginRight={"16px"}
               w={"132px"}
@@ -252,9 +251,8 @@ export default function index() {
             />
             <Button
               onClick={async () => {
+                setRoute(true);
                 await main();
-                await info(titl, molc);
-                setMaininfo(inf);
               }}
               marginRight={"16px"}
               w={"102px"}
